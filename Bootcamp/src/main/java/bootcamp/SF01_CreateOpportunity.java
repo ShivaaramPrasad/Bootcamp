@@ -96,6 +96,8 @@ if (error_mes.contains("Opportunity Name, Stage"))
 else {
 	System.out.println("Alert message is not triggred ");
 }
+driver.close();
+
 	}
 
 }

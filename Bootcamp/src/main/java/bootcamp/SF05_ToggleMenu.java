@@ -35,10 +35,7 @@ public class SF05_ToggleMenu {
 		
 		driver.findElementByXPath("//button[text()='View All']").click();
 		
-		
-
-		 
-		
+		driver.close();
 	}
 
 }

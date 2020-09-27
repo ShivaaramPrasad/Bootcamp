@@ -135,6 +135,9 @@ System.out.println("Trimed Phone number: "+trim_PhNum);
 		else {
 			System.out.println("Edit function is unsuccess and Phone Number is not Matched");
 		}
+		
+		driver.close();
+
 
 	}
 

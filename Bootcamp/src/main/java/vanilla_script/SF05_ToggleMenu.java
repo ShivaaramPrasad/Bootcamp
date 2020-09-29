@@ -1,4 +1,4 @@
-package bootcamp;
+package vanilla_script;
 
 import java.util.concurrent.TimeUnit;
 

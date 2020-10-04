@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -57,7 +58,7 @@ public class SF20_CreateAccount {
 		driver.findElementByXPath("//div[text()='New']").click();
 
 		//			6. Enter 'your name' as account name
-		String Acc_Name="Kumar";
+		String Acc_Name="vignesh";
 		System.out.println("Account Name used for Create Account : "+Acc_Name);
 		driver.findElementByXPath("//span[text()='*']/following::input").sendKeys(Acc_Name);
 		//			7. Select Ownership as Public         
@@ -74,10 +75,16 @@ public class SF20_CreateAccount {
 
 		driver.findElementByXPath("(//span[text()='Save'])[2]").click();
 		
-		String text = driver.findElementByXPath("//span[text()='Account']").getText();
-		System.out.println(text);
+		WebElement element_two = driver.findElementByXPath("//span[text()='Accounts']");
+		JavascriptExecutor executor_two = (JavascriptExecutor)driver;
+		executor_two.executeScript("arguments[0].click();", element_two);
+
+		driver.findElementByXPath("//span[text()='Accounts']/following::input[@name='Account-search-input']").sendKeys(Keys.ENTER,Acc_Name,Keys.ENTER);
+
 
 		//			Expected Result:Account should be created Successfully
+		String text =driver.findElementByXPath("//a[contains(@class,'slds-truncate outputLookupLink')]").getText();
+		System.out.println("Account Created in the name of "+text);
 
 		if (text.contains(Acc_Name))
 		{
@@ -89,7 +96,7 @@ public class SF20_CreateAccount {
 			System.out.println("Account is not created successfully");
 		}
 		
-		driver.close();
+	//	driver.close();
 
 	}
 

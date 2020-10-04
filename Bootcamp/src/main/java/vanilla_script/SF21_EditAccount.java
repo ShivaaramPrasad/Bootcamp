@@ -46,7 +46,7 @@ public class SF21_EditAccount {
 		WebElement element = driver.findElementByXPath("//span[text()='All Items']");
 		JavascriptExecutor executor1 = (JavascriptExecutor)driver;
 		executor1.executeScript("arguments[0].click();", element);
-		
+
 		//        	4. Click on Accounts
 
 		WebElement elemente = driver.findElementByXPath("//p[text()='Accounts']");
@@ -55,7 +55,7 @@ public class SF21_EditAccount {
 
 		driver.findElementByXPath("//p[text()='Accounts']").click();
 
-		String Acc_Name="two";
+		String Acc_Name="Kumar";
 
 		//       5. Search for the Account Using the unique account name created by you 
 		driver.findElementByXPath("//span[text()='Accounts']/following::input[@name='Account-search-input']").sendKeys(Acc_Name);
@@ -65,7 +65,7 @@ public class SF21_EditAccount {
 		Thread.sleep(3000);
 		driver.findElementByXPath("//a[contains(@class,'slds-button slds-button--icon-x-small')]").click();
 		driver.findElementByXPath("//a[@title='Edit']").click();
-		
+
 		//       7. Select Type as Technology Partner
 		driver.findElementByXPath("(//a[@class='select'])[2]").click();
 
@@ -115,16 +115,15 @@ public class SF21_EditAccount {
 		//                               16. Click on save and verfiy Phone number
 		driver.findElementByXPath("(//span[text()='Save'])[2]").click();
 		driver.findElementByXPath("//span[@data-aura-class='uiOutputPhone']").getText();
-		String text = driver.findElementByXPath("//span[text()='Account']").getText();
-
+		
 		String Verify = driver.findElementByXPath("//span[text()='Account']").getText();
 		System.out.println(Verify);
 
 		//			17.Expected Result:Account should be created Successfully
-String Verify_PhNum = driver.findElementByXPath("//span[@dir='ltr']").getText();
-System.out.println("Displaying the saved phone number: "+Verify_PhNum);
-String trim_PhNum = Verify_PhNum.replace(" ", "").replace("(", "").replace(")", "").replaceAll("-", "");
-System.out.println("Trimed Phone number: "+trim_PhNum);
+		String Verify_PhNum = driver.findElementByXPath("//span[@dir='ltr']").getText();
+		System.out.println("Displaying the saved phone number: "+Verify_PhNum);
+		String trim_PhNum = Verify_PhNum.replace(" ", "").replace("(", "").replace(")", "").replaceAll("-", "");
+		System.out.println("Trimed Phone number: "+trim_PhNum);
 
 		if (PhNUM.contains(trim_PhNum))
 		{
@@ -135,7 +134,7 @@ System.out.println("Trimed Phone number: "+trim_PhNum);
 		else {
 			System.out.println("Edit function is unsuccess and Phone Number is not Matched");
 		}
-		
+
 		driver.close();
 
 

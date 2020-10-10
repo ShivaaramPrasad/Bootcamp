@@ -96,7 +96,7 @@ public class SF20_CreateAccount {
 			System.out.println("Account is not created successfully");
 		}
 		
-	driver.close();
+	     driver.close();
 
 	}
 

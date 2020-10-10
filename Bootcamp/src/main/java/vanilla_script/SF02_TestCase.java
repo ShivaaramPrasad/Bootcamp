@@ -83,7 +83,8 @@ public class SF02_TestCase {
 //			9. Click on New Dashboard
 				driver.findElementByXPath("//select dashboards").click();
 //			10. Enter the Dashboard name as "YourName_Bootcamp"
-				driver.findElementById("dashboardNameInput").sendKeys("Shivaaram_Bootcamp");
+				String name="Shivaaram_Bootcamp";
+				driver.findElementById("dashboardNameInput").sendKeys(name);
 
 //			11. Enter Description as Testing and Click on Save
 				driver.findElementById("dashboardDescriptionInput").sendKeys("Testing");
@@ -116,6 +117,7 @@ public class SF02_TestCase {
 				}
 
 //			18. Close the "YourName_Bootcamp" tab
+				driver.findElementByXPath("//button[@title='Close Shivaaram_Bootcamp']//lightning-primitive-icon[1]");
 //			19. Click on Private Dashboards
 //			20. Verify the newly created Dashboard available
 //			21. Click on dropdown for the item

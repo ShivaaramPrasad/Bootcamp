@@ -273,7 +273,6 @@ public class SFO104_ProcessBuilder {
 	    String accountName=accountNamevalue.replace('"', ' ').trim();
 	    
 		System.out.println("Stored Account Value "+accountName);
-		driver.switchTo().defaultContent();
 		Thread.sleep(5000);
 		//			34) Click on App Launcher on the left top and click on View All
 		WebDriverWait wait_two = new WebDriverWait(driver,10);

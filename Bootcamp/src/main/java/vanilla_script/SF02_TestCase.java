@@ -48,56 +48,59 @@ public class SF02_TestCase {
 				driver.findElementByXPath("//p[text()='Service Console']").click();
 
 //			5. Select Home from the DropDown
-				Thread.sleep(10000);
-				driver.findElementByXPath("//span[text()='Dashboards']/following::div").click();
-				Thread.sleep(2000);
-				driver.findElementByXPath("(//span[text()='Home'])[2]").click();
-			//	Thread.sleep(2000);
+				Thread.sleep(4000);
+				driver.findElementByXPath("//button[@title='Show Navigation Menu']").click();
+				
+				driver.findElementByXPath("//a[@title='Home'][@role='option']").click();
+				
 
 //			6. Add CLOSED + OPEN values and result should set as the GOAL. If the result is less than 10000, then set the GOAL as 10000.
-				String CLOSED = driver.findElementByXPath("//span[@class='metricAmount uiOutputText']").getText();
-				System.out.println(CLOSED);
-				
-				String OPEN  = driver.findElementByXPath("(//span[@class='metricAmount uiOutputText'])[2]").getText();
-				System.out.println(OPEN);
-				int CLOSED_i=Integer.parseInt(CLOSED);  
-				int OPEN_i=Integer.parseInt(OPEN);  
-				int Result= OPEN_i+CLOSED_i;
-				
-				if (Result<10000)
+				String closedValue = driver.findElementByXPath("//span[text()='Closed'][@class='metricLabel']//following-sibling::span").getText();
+				String openValue = driver.findElementByXPath("//span[contains(text(),'Open')][@class='metricLabel']//following-sibling::span").getText();
+				String closedFinalValue=closedValue.replaceAll("[^0-9]", "");
+				String openFinalValue=openValue.replaceAll("[^0-9]", "");
+				String goalValue="";
+				System.out.println("Goal Value Before: "+goalValue);
+				if(Integer.parseInt(closedFinalValue)+Integer.parseInt(openFinalValue)<10000) {
+					goalValue="10000";
+				}else
 				{
-					int Goal=10000;
-					System.out.println("Goal is seta as" +Goal);
+					int addValue=Integer.parseInt(closedFinalValue)+Integer.parseInt(openFinalValue);
+					goalValue=Integer.toString(addValue);
 				}
-				else {
-					System.out.println("Goal is not set");
+				System.out.println("Goal Value After: "+goalValue);
+				driver.findElementByXPath("//button[@title='Edit Goal']").click();
+				WebElement goalElement = driver.findElementByXPath("//input[@aria-describedby=\"currencyCode\"]");
+				goalElement.clear();
+				goalElement.sendKeys(goalValue);
+				driver.findElementByXPath("//span[text()='Save']").click();
 
-				}
 					
 				//			7. Select Dashboards
 				
-		driver.findElementByXPath("//span[text()='Dashboards']").click();
-
+				driver.findElementByXPath("//button[@title='Show Navigation Menu']").click();
+				
+				driver.findElementByXPath("//a[@title='Dashboards'][@role='option']").click();
+				
 //			8. Click on Private Dashboards
-				driver.findElementByXPath("//a[text()='Private Dashboards']").click();
-//			9. Click on New Dashboard
-				driver.findElementByXPath("//select dashboards").click();
+				driver.findElementByXPath("//a[text()='Private Dashboards'][@class='slds-nav-vertical__action']").click();
+				//			9. Click on New Dashboard
+				driver.findElementByXPath("//a[@title='New Dashboard']").click();
 //			10. Enter the Dashboard name as "YourName_Bootcamp"
 				String name="Shivaaram_Bootcamp";
 				driver.findElementById("dashboardNameInput").sendKeys(name);
 
 //			11. Enter Description as Testing and Click on Save
 				driver.findElementById("dashboardDescriptionInput").sendKeys("Testing");
-//			12. Click on Done
 				driver.findElementByXPath("//button[text()='Create']").click();
+
+//			12. Click on Done
 				driver.findElementByXPath("//button[text()='Done']").click();
 //			13. Click on Subscribe
 				driver.findElementByXPath("//button[text()='Subscribe']").click();
-				driver.findElementByXPath("//span[text()='OK']").click();
 //			14. Select Frequency as "Daily"
 				driver.findElementByXPath("//span[text()='Daily']").click();
 				
-
 //			15. Time as 10:00 AM
 				WebElement dropdown1 = driver.findElementById("time");
 				Select dd = new Select(dropdown1);

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="password" value="Bootcamp$123"/>
+    <parameter name="userName" value="nupela@testleaf.com"/>
+    <parameter name="url" value="https://login.salesforce.com/"/>
+    <parameter name="Browser" value="1"/>
+    <groups>
+      <run>
+        <include name="Haja"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="new_testng_script.CreateAccount">
+        <methods>
+          <include name="runCreateAccount" invocation-numbers="0"/>
+          <include name="setFileName"/>
+          <include name="preCondition"/>
+          <include name="postCondition"/>
+        </methods>
+      </class> <!-- new_testng_script.CreateAccount -->
+      <class name="new_testng_script.DeletAccount">
+        <methods>
+          <include name="runEditAccount"/>
+          <include name="preCondition"/>
+          <include name="setFileName"/>
+          <include name="postCondition"/>
+        </methods>
+      </class> <!-- new_testng_script.DeletAccount -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

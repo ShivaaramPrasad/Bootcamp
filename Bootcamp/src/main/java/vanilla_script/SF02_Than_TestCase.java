@@ -2,6 +2,8 @@ package vanilla_script;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,6 +16,31 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class SF02_Than_TestCase {
 
 	public static void main(String[] args) throws InterruptedException {
+		
+	    /*    1. Login to https://login.salesforce.com
+			2. Click on toggle menu button from the left corner
+			3. Click view All 
+			4. Click Service Console from App Launcher
+			5. Select Home from the DropDown
+			6. Add CLOSED + OPEN values and result should set as the GOAL. If the result is less than 10000, then set the GOAL as 10000.
+			7. Select Dashboards
+			8. Click on Private Dashboards
+			9. Click on New Dashboard
+			10. Enter the Dashboard name as "YourName_Bootcamp"
+			11. Enter Description as Testing and Click on Save
+			12. Click on Done
+			13. Click on Subscribe
+			14. Select Frequency as "Daily"
+			15. Time as 10:00 AM
+			16. Click on Save
+			17. Verify "You started Dashboard Subscription" message displayed or not
+			18. Close the "YourName_Bootcamp" tab
+			19. Click on Private Dashboards
+			20. Verify the newly created Dashboard available
+			21. Click on dropdown for the item
+			22. Select Delete
+			23. Confirm the Delete
+			24. Verify the item is not available under Private Dashboard folder */
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 
@@ -96,7 +123,7 @@ public class SF02_Than_TestCase {
 		WebElement ele = driver.findElementByXPath("//iframe");
 		driver.switchTo().frame(ele);
 		Thread.sleep(2000);
-		driver.findElementById("dashboardNameInput").sendKeys("Shivaaram_Bootcamp");
+		driver.findElementById("dashboardNameInput").sendKeys("Thanveer_Bootcamp");
 		//enter description as testing
 		driver.findElementById("dashboardDescriptionInput").sendKeys("Testing");
 		//click on create
@@ -163,7 +190,7 @@ public class SF02_Than_TestCase {
 			String text2 = driver.findElementByXPath("(//table//tbody//tr//th//a[1])["+i+"]").getText();
 			System.out.println(text2);
 
-			if (text2.contains("Shivaaram")) {
+			if (text2.contains("Thanveer")) {
 				System.out.println("Dashboard name was not deleted");
 
 			}else {
@@ -172,7 +199,4 @@ public class SF02_Than_TestCase {
 			}
 		}
 
-	}
-}
-
-
+	}}

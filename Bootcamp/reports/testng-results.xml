@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="5" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="125596" started-at="2020-10-26T18:16:56 IST" finished-at="2020-10-26T18:19:01 IST">
+    <groups>
+      <group name="Srikant">
+        <method signature="DeletAccount.runEditAccount(java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="runEditAccount" class="new_testng_script.DeletAccount"/>
+      </group> <!-- Srikant -->
+      <group name="Haja">
+        <method signature="CreateAccount.runCreateAccount(java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="runCreateAccount" class="new_testng_script.CreateAccount"/>
+        <method signature="DeletAccount.runEditAccount(java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="runEditAccount" class="new_testng_script.DeletAccount"/>
+      </group> <!-- Haja -->
+      <group name="Shivaa">
+        <method signature="CreateAccount.runCreateAccount(java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="runCreateAccount" class="new_testng_script.CreateAccount"/>
+        <method signature="DeletAccount.runEditAccount(java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="runEditAccount" class="new_testng_script.DeletAccount"/>
+      </group> <!-- Shivaa -->
+    </groups>
+    <test name="Test" duration-ms="125596" started-at="2020-10-26T18:16:56 IST" finished-at="2020-10-26T18:19:01 IST">
+      <class name="new_testng_script.CreateAccount">
+        <test-method status="PASS" signature="setFileName()[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="setFileName" is-config="true" duration-ms="16" started-at="2020-10-26T18:16:56 IST" finished-at="2020-10-26T18:16:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setFileName -->
+        <test-method status="PASS" signature="preCondition(int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="preCondition" is-config="true" duration-ms="12645" started-at="2020-10-26T18:16:57 IST" finished-at="2020-10-26T18:17:09 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://login.salesforce.com/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[nupela@testleaf.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bootcamp$123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="runCreateAccount(java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="runCreateAccount" duration-ms="18707" started-at="2020-10-26T18:17:09 IST" data-provider="fetchData" finished-at="2020-10-26T18:17:28 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Shivaa]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Public]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runCreateAccount -->
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="postCondition" is-config="true" duration-ms="92" started-at="2020-10-26T18:17:28 IST" finished-at="2020-10-26T18:17:28 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+        <test-method status="PASS" signature="preCondition(int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="preCondition" is-config="true" duration-ms="9370" started-at="2020-10-26T18:17:28 IST" finished-at="2020-10-26T18:17:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://login.salesforce.com/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[nupela@testleaf.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bootcamp$123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="runCreateAccount(java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="runCreateAccount" duration-ms="15272" started-at="2020-10-26T18:17:37 IST" data-provider="fetchData" finished-at="2020-10-26T18:17:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Raam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Public]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runCreateAccount -->
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:new_testng_script.CreateAccount@a3107a]" name="postCondition" is-config="true" duration-ms="95" started-at="2020-10-26T18:17:53 IST" finished-at="2020-10-26T18:17:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- new_testng_script.CreateAccount -->
+      <class name="new_testng_script.EditAccount">
+        <test-method status="PASS" signature="setFileName()[pri:0, instance:new_testng_script.EditAccount@1c7e1bb]" name="setFileName" is-config="true" duration-ms="0" started-at="2020-10-26T18:16:56 IST" finished-at="2020-10-26T18:16:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setFileName -->
+      </class> <!-- new_testng_script.EditAccount -->
+      <class name="new_testng_script.DeletAccount">
+        <test-method status="PASS" signature="setFileName()[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="setFileName" is-config="true" duration-ms="0" started-at="2020-10-26T18:16:56 IST" finished-at="2020-10-26T18:16:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setFileName -->
+        <test-method status="PASS" signature="preCondition(int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="preCondition" is-config="true" duration-ms="9457" started-at="2020-10-26T18:17:53 IST" finished-at="2020-10-26T18:18:02 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://login.salesforce.com/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[nupela@testleaf.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bootcamp$123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="runEditAccount(java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="runEditAccount" duration-ms="24851" started-at="2020-10-26T18:18:02 IST" data-provider="fetchData" depends-on-methods="new_testng_script.CreateAccount.runCreateAccount" finished-at="2020-10-26T18:18:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Shivaa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runEditAccount -->
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="postCondition" is-config="true" duration-ms="87" started-at="2020-10-26T18:18:27 IST" finished-at="2020-10-26T18:18:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+        <test-method status="PASS" signature="preCondition(int, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="preCondition" is-config="true" duration-ms="9617" started-at="2020-10-26T18:18:27 IST" finished-at="2020-10-26T18:18:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://login.salesforce.com/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[nupela@testleaf.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Bootcamp$123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- preCondition -->
+        <test-method status="PASS" signature="runEditAccount(java.lang.String)[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="runEditAccount" duration-ms="24374" started-at="2020-10-26T18:18:37 IST" data-provider="fetchData" depends-on-methods="new_testng_script.CreateAccount.runCreateAccount" finished-at="2020-10-26T18:19:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Raam]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runEditAccount -->
+        <test-method status="PASS" signature="postCondition()[pri:0, instance:new_testng_script.DeletAccount@14c4973]" name="postCondition" is-config="true" duration-ms="137" started-at="2020-10-26T18:19:01 IST" finished-at="2020-10-26T18:19:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCondition -->
+      </class> <!-- new_testng_script.DeletAccount -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

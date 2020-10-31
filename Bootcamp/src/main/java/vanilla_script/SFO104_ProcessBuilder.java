@@ -70,6 +70,7 @@ public class SFO104_ProcessBuilder {
 
 		driver.get("https://login.salesforce.com/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		//1.Launch Salesforce application https://login.salesforce.com/
 
@@ -230,9 +231,6 @@ public class SFO104_ProcessBuilder {
 		// driver.switchTo().defaultContent();
 
 		//			28) Click on Activate button and click Confirm
-		//	int size_three = driver.findElements(By.xpath("//iframe[@title='accessibility title']")).size();
-		//	System.out.println("How many frames "+size_three);
-		//	driver.switchTo().frame(0); 
 		Thread.sleep(2000);
 
 		WebDriverWait wait_one = new WebDriverWait(driver,5);
@@ -275,6 +273,7 @@ public class SFO104_ProcessBuilder {
 		System.out.println("Stored Account Value "+accountName);
 		Thread.sleep(5000);
 		//			34) Click on App Launcher on the left top and click on View All
+		
 		WebDriverWait wait_two = new WebDriverWait(driver,10);
 		wait_two.until(ExpectedConditions.visibilityOfElementLocated(By.className("slds-icon-waffle")));
 		driver.findElement(By.className("slds-icon-waffle")).click();
@@ -291,7 +290,7 @@ public class SFO104_ProcessBuilder {
 		String contract_name =driver.findElement(By.xpath("(//a[contains(@class,'slds-truncate outputLookupLink')])[2]")).getText();
 
 
-		if (contract_name.contains(accountName))
+		if (contract_name.equalsIgnoreCase(accountName))
 		{
 			System.out.println(" Contract is created with the AccountName as displayed sucessfully");
 

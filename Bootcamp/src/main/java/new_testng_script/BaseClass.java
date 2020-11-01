@@ -27,6 +27,7 @@ public class BaseClass {
 	
 	@BeforeMethod(alwaysRun=true)
 	@Parameters({"Browser","url","userName","password"})
+	
 	public void preCondition(int Browser,String url, String userName,String password) {
 		
 		switch (Browser) {

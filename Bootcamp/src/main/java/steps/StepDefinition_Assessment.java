@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -54,17 +55,15 @@ public class StepDefinition_Assessment {
 
 	@When("Click on Community under Most Recently Used")
 	public void click_on_community_under_most_recently_used() throws InterruptedException {
-		boolean displayed = driver.findElement(By.className("switch-to-lightning")).isDisplayed();
-		if(displayed)
-		{
-			driver.findElement(By.className("switch-to-lightning")).click();
-			Thread.sleep(5000);
-
+		List<WebElement> light = driver.findElements(By.xpath("//a[text()='Switch to Lightning Experience']"));
+		if(!(light.isEmpty())) {
+			light.get(0).click();
 		}
 		else {
 			System.out.println("Switch To Lightning is not shown");
 		}
 		Thread.sleep(5000);
+
 		driver.findElement(By.linkText("Community")).click();
 
 	}
@@ -137,7 +136,7 @@ public class StepDefinition_Assessment {
 		int dayAfterTommorowdate = dayOfMonth+2;
 
 		//Click Date Picker using Javascript executor
-		
+
 
 		driver.findElement(By.xpath("//input[@name='EndDateTime']")).click();
 		driver.findElement(By.xpath("//table[@id='datePickerCalendar']//descendant::td[text()="+dayAfterTommorowdate+"][not(contains(@class,'nextMonth'))]")).click();
@@ -145,59 +144,56 @@ public class StepDefinition_Assessment {
 	}
 
 	@Then("Add invitees as Contact: Click on the LookUp icon")
-	public void add_invitees_as_contact_click_on_the_look_up_icon() {
-}
+	public void add_invitees_as_contact_click_on_the_look_up_icon() throws InterruptedException {
 
-	@When("Search for Sarath and select first result")
-	public void search_for_sarath_and_select_first_result() {
+		WebElement name = driver.findElement(By.xpath("//select[@title='Search scope']"));
+		Select nameoptions = new Select(name);
+		nameoptions.selectByVisibleText("Contact");
+		driver.findElement(By.xpath("//img[@title='Name Lookup (New Window)']")).click();
 
-		String parentWindow = driver.getWindowHandle();
-		Set<String> handle =  driver.getWindowHandles();
-		for(String windowHandle  : handle)
-		{
-			if(!windowHandle.equals(parentWindow))
-			{
-				driver.switchTo().window(windowHandle);
-			}
-		}
-
+		Set<String> windowhandles = driver.getWindowHandles();
+		List<String> lwindowhandles = new ArrayList<>();
+		lwindowhandles.addAll(windowhandles);
+		driver.switchTo().window(lwindowhandles.get(1));
+		driver.switchTo().frame("searchFrame");
 		driver.findElement(By.id("lksrch")).sendKeys("Sarath");
 		driver.findElement(By.name("go")).click();
-		driver.findElement(By.xpath("//th[text()='Name']/following::a")).click();
-		driver.switchTo().window(parentWindow);
+		Thread.sleep(2000);
+		driver.switchTo().window(lwindowhandles.get(1));
+		driver.switchTo().frame("resultsFrame");
+		driver.findElement(By.xpath("//a[text()='Sarath M']")).click();
+		driver.switchTo().window(lwindowhandles.get(0));
+
 
 	}
-
+	
 	@And("Attach a file to the event Choose File, Attach File and Done")
-	public void attach_a_file_to_the_event_choose_file_attach_file_and_done() {
-		driver.findElement(By.xpath("//input[@title='Attach File']")).click();
-		String parentWindow = driver.getWindowHandle();
-		Set<String> handle =  driver.getWindowHandles();
-		for(String windowHandle  : handle)
-		{
-			if(!windowHandle.equals(parentWindow))
-			{
-				driver.switchTo().window(windowHandle);
-			}
-		}
-		String fileName_one ="Se.pdf";
-		driver.findElement(By.id("file")).click();
+	public void attach_a_file_to_the_event_choose_file_attach_file_and_done() throws InterruptedException {
+		String fileName_one ="error";
 
-		WebElement upload_file = driver.findElement(By.id("file"));
-		upload_file.sendKeys("C:/Users/DELL/Desktop/"+fileName_one+"");
-		driver.findElement(By.id("Attach")).click();
-		driver.findElement(By.xpath("//input[@title='Done']")).click();
-		driver.switchTo().window(parentWindow);
+		WebElement attachfile = driver.findElement(By.name("attachFile"));
+		JavascriptExecutor ajse = (JavascriptExecutor)driver;
+		ajse.executeScript("arguments[0].scrollIntoView(true)", attachfile);
+		attachfile.click();
 
+		Set<String> whandles = driver.getWindowHandles();
+		List<String> lwhandles = new ArrayList<>();
+		lwhandles.addAll(whandles);
+		System.out.println(lwhandles.size());
+		driver.switchTo().window(lwhandles.get(1));
+		System.out.println(driver.getTitle());
+		driver.findElement(By.xpath("//input[@name='file']")).sendKeys("C:/Users/DELL/Desktop/"+fileName_one+".txt");
+		driver.findElement(By.name("Attach")).click();
+		Thread.sleep(2000);
 	}
 
 	@Then("Verify that the file is attached to the file")
 	public void verify_that_the_file_is_attached_to_the_file() {
 
-	 String fileaAttached = driver.findElement(By.xpath("//td[text()='File Name']/following-sibling::td")).getText();
-	String fileName_two ="Se.png";
+		String fileaAttached = driver.findElement(By.xpath("//td[text()='File Name']/following-sibling::td")).getText();
+		String fileName_two ="error";
 
-	 if (fileaAttached.contains(fileName_two))
+		if (fileaAttached.contains(fileName_two))
 		{
 			System.out.println("File is still avaible");
 
@@ -212,9 +208,11 @@ public class StepDefinition_Assessment {
 	@And("Click on Save")
 	public void click_on_save() {
 
-
-		driver.findElement(By.xpath("//input[@name='save']")).click();
-
+		Set<String> shandles = driver.getWindowHandles();
+		List<String> lshandles = new ArrayList<>();
+		lshandles.addAll(shandles);
+		driver.switchTo().window(lshandles.get(0));
+		driver.findElement(By.xpath("(//input[@name='save'])[2]")).click();
 	}
 
 

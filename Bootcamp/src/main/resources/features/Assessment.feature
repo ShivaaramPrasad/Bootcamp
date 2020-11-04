@@ -14,7 +14,6 @@ And Enter the Subject as Call Email Meeting
 And Enter Start date as tomorrow 
 And Enter End date as tomorrow+one
 Then Add invitees as Contact: Click on the LookUp icon
-When Search for Sarath and select first result
 And Attach a file to the event Choose File, Attach File and Done
 Then Verify that the file is attached to the file
 When Click on Save

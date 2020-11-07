@@ -25,7 +25,7 @@ public class StepDefinition_Assessment {
 
 	public  WebDriver driver;
 
-	@Given("Login to the application")
+	@Given("Login to eeethe application")
 	public void login_to_the_application() {
 
 		System.out.println("User Option is 1, So Invoking Chrome Browser");
@@ -191,7 +191,7 @@ public class StepDefinition_Assessment {
 	public void verify_that_the_file_is_attached_to_the_file() {
 
 		String fileaAttached = driver.findElement(By.xpath("//td[text()='File Name']/following-sibling::td")).getText();
-		String fileName_two ="error";
+	String fileName_two ="error";
 
 		if (fileaAttached.contains(fileName_two))
 		{
